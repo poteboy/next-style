@@ -1,6 +1,16 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+const withImages = require("next-images");
 
-module.exports = nextConfig
+module.exports = withImages(
+  withBundleAnalyzer({
+    pageExtensions: ["page.tsx"],
+    images: {
+      disableStaticImages: true,
+    },
+    eslint: {
+      dirs: ["*/*", "src/*"],
+    },
+  })
+);

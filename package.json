@@ -1,5 +1,5 @@
 {
-  "name": "web-playground",
+  "name": "next-template",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,9 +8,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@next/bundle-analyzer": "^12.0.10",
+    "@types/styled-components": "^5.1.21",
+    "@types/styled-system": "^5.1.15",
     "next": "12.0.10",
+    "next-images": "^1.8.4",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "styled-components": "^5.3.3",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@types/node": "17.0.15",
