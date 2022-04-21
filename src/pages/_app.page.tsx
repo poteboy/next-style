@@ -1,8 +1,10 @@
 import "../styles/globals.css";
 import { useEffect } from "react";
 import { MuiThemeProvider, StylesProvider } from "@material-ui/core/styles";
-// import { theme } from "@src/constants";
 import type { AppProps } from "next/app";
+import { createTheme } from "@material-ui/core";
+
+const theme = createTheme();
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -14,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <StylesProvider injectFirst>
-      <MuiThemeProvider theme={{}}>
+      <MuiThemeProvider theme={theme}>
         <Component {...pageProps} />
       </MuiThemeProvider>
     </StylesProvider>
