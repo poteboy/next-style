@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { StyleProps } from "@src/styles";
-import { View } from "@src/components";
+import { View } from "@src/ui-core";
 
 export const VStack: FC<StyleProps> = ({ children, ...props }) => {
   return (

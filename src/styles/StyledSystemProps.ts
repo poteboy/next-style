@@ -46,4 +46,4 @@ export const styledSystemProps = [
   boxShadow,
 ];
 
-export type StyleProps = StyledSystemProps & HTMLAttributes<HTMLDivElement>;
+export type StyleProps = StyledSystemProps & HTMLAttributes<HTMLElement>;

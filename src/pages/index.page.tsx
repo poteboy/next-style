@@ -1,13 +1,14 @@
 import React from "react";
 import type { NextPage } from "next";
-import { View, Button } from "@src/components";
-import { Button as ButtonB } from "@material-ui/core";
+import { View, Button, Text } from "@src/ui-core";
 
 const Home = () => {
   return (
-    <View>
-      <Button title="hello" backgroundColor="tomato" />
-      <ButtonB style={{ background: "tomato" }}>hello</ButtonB>
+    <View ml={4}>
+      <Button  ><Text color='white'>hello</Text></Button>
+      <Text variant="heading">hello</Text>
+      <Text tag="p">hello</Text>
+      <Text tag="span">hello</Text>
     </View>
   );
 };
