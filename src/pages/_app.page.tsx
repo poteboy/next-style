@@ -1,14 +1,14 @@
-import "../styles/globals.css";
-import { useEffect } from "react";
-import { MuiThemeProvider, StylesProvider } from "@material-ui/core/styles";
-import type { AppProps } from "next/app";
-import { createTheme } from "@material-ui/core";
+import '../styles/globals.css';
+import { useEffect } from 'react';
+import { MuiThemeProvider, StylesProvider } from '@material-ui/core/styles';
+import type { AppProps } from 'next/app';
+import { createTheme } from '@material-ui/core';
 
 const theme = createTheme();
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
+    const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement?.removeChild(jssStyles);
     }

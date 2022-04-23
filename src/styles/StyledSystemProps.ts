@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes } from 'react';
 import {
   background,
   BackgroundProps,
@@ -20,7 +20,7 @@ import {
   TypographyProps,
   boxShadow,
   BoxShadowProps,
-} from "styled-system";
+} from 'styled-system';
 
 export type StyledSystemProps = TypographyProps &
   SpaceProps &
