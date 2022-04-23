@@ -5,7 +5,7 @@ import { StyleProps, styledSystemProps, StyledSystemProps } from '@src/styles';
 import { variant, ButtonStyleProps } from 'styled-system';
 
 type VariantProps = {
-  variant?: 'primary';
+  variant?: 'primary' | 'secondary';
 };
 
 type B = Exclude<ButtonStyleProps, 'variant'> & VariantProps;
@@ -23,9 +23,9 @@ const ButtonRoot = styled(_Button)<StyledSystemProps>(
       },
       secondary: {
         color: 'white',
-        bg: 'secondary',
+        bg: 'tomato',
         ':hover': {
-          bg: 'black',
+          bg: 'tomato',
         },
       },
     },

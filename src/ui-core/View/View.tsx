@@ -19,12 +19,8 @@ export const View: FC<StyleProps & ResponsiveProps> = memo(props => {
 
   const responsive = [..._sp(sp ?? {}), _tab(tab ?? {}), _pc(pc ?? {})];
 
-  const Root = styled(ViewRoot)`
-    ${responsive}
-  `;
-
   return (
-    <Root {...style} {...responsive}>
+    <Root responsive={responsive} {...(style as any)}>
       {props.children}
     </Root>
   );
@@ -34,3 +30,7 @@ const ViewRoot = styled('div')<StyledSystemProps & SimpleInterpolation[]>(
   {},
   styledSystemProps,
 );
+
+const Root = styled(ViewRoot)<{ responsive: SimpleInterpolation[] }>`
+  ${props => props.responsive}
+`;
