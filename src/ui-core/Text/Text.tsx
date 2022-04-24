@@ -4,9 +4,10 @@ import { StyledSystemProps, styledSystemProps, StyleProps } from '@src/styles';
 import { fontWeight, variant as _variant } from 'styled-system';
 
 type Variant = 'body' | 'heading';
+type TextTag = 'div' | 'a' | 'p' | 'span';
 
 type TextProps = StyleProps & {
-  tag?: 'div' | 'a' | 'p' | 'span';
+  tag?: TextTag;
 } & {
   variant?: Variant;
 };
@@ -19,25 +20,25 @@ export const Text: FC<TextProps> = memo(props => {
   switch (tag) {
     case 'div':
       return (
-        <DivRoot {...style} style={variantStyle}>
+        <DivRoot style={variantStyle} {...style}>
           {children}
         </DivRoot>
       );
     case 'p':
       return (
-        <PRoot {...style} style={variantStyle}>
+        <PRoot style={variantStyle} {...style}>
           {children}
         </PRoot>
       );
     case 'a':
       return (
-        <ARoot {...style} style={variantStyle}>
+        <ARoot style={variantStyle} {...style}>
           {children}
         </ARoot>
       );
     case 'span':
       return (
-        <SpanRoot {...style} style={variantStyle}>
+        <SpanRoot style={variantStyle} {...style}>
           {children}
         </SpanRoot>
       );

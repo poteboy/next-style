@@ -2,9 +2,7 @@ import '../styles/globals.css';
 import { useEffect } from 'react';
 import { MuiThemeProvider, StylesProvider } from '@material-ui/core/styles';
 import type { AppProps } from 'next/app';
-import { createTheme } from '@material-ui/core';
-
-const theme = createTheme();
+import { theme } from '@src/styles';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

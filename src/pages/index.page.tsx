@@ -5,7 +5,7 @@ import { View, Button, Text, VStack } from '@src/ui-core';
 const Home = () => {
   return (
     <>
-      <View ml={4} tab={{ background: 'black' }}>
+      <View ml={4} sp={{ background: 'black' }}>
         <Button variant="secondary">
           <Text color="white">hello</Text>
         </Button>

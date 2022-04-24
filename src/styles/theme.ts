@@ -1,8 +1,3 @@
-import { createTheme } from '@material-ui/core';
+import {createTheme} from "@material-ui/core";
 
-export const theme = createTheme({
-    overrides: {
-        MuiButton: {
-        }
-   }
-});
+export const theme = createTheme({});
