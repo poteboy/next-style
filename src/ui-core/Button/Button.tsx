@@ -3,6 +3,7 @@ import styled, {
   css,
   SimpleInterpolation,
   FlattenSimpleInterpolation,
+  CSSObject,
 } from 'styled-components';
 import { Button as _Button, ButtonProps } from '@material-ui/core';
 import { StyleProps, styledSystemProps, StyledSystemProps } from '@src/styles';
@@ -17,15 +18,13 @@ type B = Exclude<ButtonStyleProps, 'variant'> & {
 const ButtonRoot = styled(_Button)<StyledSystemProps>({}, styledSystemProps);
 
 export const Root = styled(ButtonRoot)<{
-  variantStyle: SimpleInterpolation[];
+  variantStyle: CSSObject;
 }>`
   ${props => props.variantStyle}
 `;
 
 export const Button: FC<B> = memo(({ children, variant, ...style }) => {
-  const variantStyle: SimpleInterpolation[] = [
-    ...createStyleFromVariant(variant),
-  ];
+  const variantStyle: CSSObject = createStyleFromVariant(variant);
 
   return (
     <Root variantStyle={variantStyle} {...style}>
@@ -34,70 +33,18 @@ export const Button: FC<B> = memo(({ children, variant, ...style }) => {
   );
 });
 
-const createStyleFromVariant = (
-  variant: Variant,
-): FlattenSimpleInterpolation => {
+const createStyleFromVariant = (variant: Variant): CSSObject => {
+  const defaultStyle: CSSObject = {
+    background: 'tomato',
+    borderRadius: 15,
+    '&:hover': {
+      background: 'tomato',
+    },
+  };
   switch (variant) {
     case 'primary':
-      return css`
-        background: 'tomato'
-        color: 'white',
-        border-radius: 20,
-        '&:hover': {
-          'background': 'tomato'
-        }
-      `;
+      return defaultStyle;
     default:
-      return css`
-      background: 'tomato'
-      color: 'white',
-      border-radius: 20,
-      '&:hover': {
-        'background': 'tomato'
-      }
-    `;
+      return defaultStyle;
   }
 };
-
-// import React, { FC, memo } from 'react';
-// import styled, { css } from 'styled-components';
-// import { Button as _Button, ButtonProps } from '@material-ui/core';
-// import { StyleProps, styledSystemProps, StyledSystemProps } from '@src/styles';
-// import { variant, ButtonStyleProps } from 'styled-system';
-
-// type VariantProps = {
-//   variant?: 'primary' | 'secondary';
-// };
-
-// type B = Exclude<ButtonStyleProps, 'variant'> & VariantProps;
-
-// const ButtonRoot = styled(_Button)<StyledSystemProps>(
-//   variant({
-//     variants: {
-//       primary: {
-//         color: 'white',
-//         bg: 'black',
-//         borderRadius: 20,
-//         ':hover': {
-//           bg: 'black',
-//         },
-//       },
-//       secondary: {
-//         color: 'white',
-//         bg: 'tomato',
-//         ':hover': {
-//           bg: 'tomato',
-//         },
-//       },
-//     },
-//   }),
-//   styledSystemProps,
-// );
-
-// export const Button: FC<B> = memo(({ children, variant, ...style }) => {
-//   return (
-//     <ButtonRoot variant={variant ?? ('primary' as any)} {...style}>
-//       {children}
-//     </ButtonRoot>
-//   );
-// });

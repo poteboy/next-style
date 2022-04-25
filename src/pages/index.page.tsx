@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <View ml={4} sp={{ background: 'black' }}>
-        <Button variant="secondary">
+        <Button variant="primary">
           <Text color="white">hello</Text>
         </Button>
         <Text variant="heading">hello</Text>
