@@ -23,6 +23,13 @@ export const Root = styled(ButtonRoot)<{
   ${props => props.variantStyle}
 `;
 
+/**
+ * Button
+ * - MUIのButtonコンポーネントに以下のpropsを付与したコンポーネント
+ *     - variant: 'primary' | 'secondary'
+ *     - utility props for styling
+ * - children propsをボタン内テキストとするので、<Text>で囲ったものを渡してください
+ */
 export const Button: FC<B> = memo(({ children, variant, ...style }) => {
   const variantStyle: CSSObject = createStyleFromVariant(variant);
 

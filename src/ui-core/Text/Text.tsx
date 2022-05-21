@@ -51,30 +51,10 @@ export const Text: FC<TextProps> = memo(props => {
   }
 });
 
-const variant = _variant({
-  variants: {
-    body: {
-      fontWeight: 600,
-    },
-    caption: {
-      fontFamily: 'body',
-      fontWeight: 'medium',
-      lineHeight: 'copy',
-      fontSize: 2,
-    },
-    label: {
-      fontFamily: 'heading',
-      fontWeight: 'regular',
-      lineHeight: 'solid',
-      fontSize: 1,
-    },
-  },
-});
-
-const DivRoot = styled('div')<StyledSystemProps>(variant, styledSystemProps);
-const PRoot = styled('p')<StyledSystemProps>(variant, styledSystemProps);
-const SpanRoot = styled('span')<StyledSystemProps>(variant, styledSystemProps);
-const ARoot = styled('a')<StyledSystemProps>(variant, styledSystemProps);
+const DivRoot = styled('div')<StyledSystemProps>({}, styledSystemProps);
+const PRoot = styled('p')<StyledSystemProps>({}, styledSystemProps);
+const SpanRoot = styled('span')<StyledSystemProps>({}, styledSystemProps);
+const ARoot = styled('a')<StyledSystemProps>({}, styledSystemProps);
 
 const createStyleFromVariant = (variant?: Variant): React.CSSProperties => {
   if (!variant) return {};
